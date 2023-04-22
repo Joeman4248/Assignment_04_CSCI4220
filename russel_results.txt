@@ -1,0 +1,88 @@
+Standard ML of New Jersey v110.79 [built: Sat Oct 26 12:27:04 2019]
+- 
+ - Course Name: CSCI4220 Principles Of Programming Languages
+ - Student Name: Russell Brogan
+ - Homework: Assignment #4
+ - Due Date: April 25, 2023 - 11:59PM
+
+val it = () : unit
+
+( ------------- Problem 1 ------------- )
+val it = () : unit
+exception List_Length_Exception
+val list1 = [1,3,5] : int list
+val list2 = [2,4,6] : int list
+val alternate = fn : 'a list * 'a list -> 'a list
+val it = [1,2,3,4,5,6] : int list
+
+
+( ------------- Problem 2 ------------- )
+val it = () : unit
+val list1 = [1,1,1,2,2] : int list
+val list2 = [1,1,2,3] : int list
+val minus = fn : int list * int list -> int list
+val it = [1,2] : int list
+val it = [3] : int list
+
+
+( ------------- Problem 3 ------------- )
+val it = () : unit
+stdIn:32.31 Warning: calling polyEqual
+val s1 = ["a","b","c","d","e"] : string list
+val s2 = ["c","d","e","f","g"] : string list
+val union_helper = fn : ''a -> ''a list -> bool
+val union = fn : ''a list * ''a list -> ''a list
+val it = ["a","b","c","d","e","f","g"] : string list
+
+
+( ------------- Problem 4 ------------- )
+val it = () : unit
+[autoloading]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+stdIn:49.27 Warning: calling polyEqual
+val s1 = [1,2,3,5] : int list
+val s2 = [1,3,4] : int list
+val s3 = [1,2,3,4,5] : int list
+val s4 = [2,3,4] : int list
+val intersection = fn : ''a list * ''a list -> ''a list
+val multiSetIntersection = fn : ''a list list -> ''a list
+val it = [3] : int list
+
+
+( ------------- Problem 5 ------------- )
+val it = () : unit
+val S1 = [1,2,3] : int list
+val S2 = [2,4,6] : int list
+val CartesianProduct = fn : 'a list * 'b list -> ('a * 'b) list
+val it = [(1,2),(1,4),(1,6),(2,2),(2,4),(2,6),(3,2),(3,4),(3,6)]
+  : (int * int) list
+
+
+( ------------- Problem 6 ------------- )
+val it = () : unit
+val list_of_numbers = [1,2,3] : int list
+val powerset_helper = fn : 'a -> 'a list -> 'a list
+val powerset = fn : 'a list -> 'a list list
+val it = [[1,2,3],[1,2],[1,3],[1],[2,3],[2],[3],[]] : int list list
+
+
+( ------------- Problem 7 ------------- )
+val it = () : unit
+val posIntegerSquare = fn : int -> int
+val finiteListRepresentation = fn : (int -> 'a) * int -> (int * 'a) list
+val it = [(1,1),(2,4),(3,9),(4,16),(5,25)] : (int * int) list
+
+
+( ------------- Problem 8 ------------- )
+val it = () : unit
+stdIn:96.7 Warning: calling polyEqual
+val FLR = [(1,1),(2,4),(3,9),(4,16),(5,25)] : (int * int) list
+val insert = fn : 'a list * 'a list -> 'a list
+val update_helper = fn
+  : (''a * 'b) list -> ''a * 'b -> (''a * 'b) list -> (''a * 'b) list
+val update = fn : (''a * 'b) list * (''a * 'b) -> (''a * 'b) list
+val it = [(1,1),(2,3),(3,9),(4,16),(5,25)] : (int * int) list
+val it = [(1,1),(2,4),(3,9),(4,16),(5,25),(6,36)] : (int * int) list
+- 
