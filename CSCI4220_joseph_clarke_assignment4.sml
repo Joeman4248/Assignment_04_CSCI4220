@@ -71,3 +71,26 @@ fun crossProduct(xs, ys) =
 crossProduct([1, 2, 3], [4, 5, 6]);
 
 print "\n--------------------  Problem 6  --------------------\n";
+
+fun powerset([]) = [[]] (* base case: empty set *)
+  | powerset(x::xs) = 
+		let
+			val next_step = powerset(xs)
+		in
+			(List.map(fn y => x::y) next_step) @ next_step
+		end;
+
+powerset([1, 2]);
+powerset([1, 2, 3]);
+
+print "\n--------------------  Problem 7  --------------------\n";
+
+fun finiteListRepresentation(f, n) = 
+	let 
+		val range = List.tabulate(n, fn x => x+1); (* [1, 2, ... n] *)
+	in 
+		List.map(fn x => (x, f(x))) range
+	end;
+
+finiteListRepresentation(fn x => x*x, 5);
+finiteListRepresentation(fn x => 2*x, 5);
