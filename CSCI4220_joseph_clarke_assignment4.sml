@@ -13,6 +13,7 @@ fun alternate([], []) = []
   | alternate(xs, ys) = raise Fail "Arrays are of unequal length";
 
 alternate([1, 3, 5], [2, 4, 6]);
+alternate(["a", "c", "e"], ["b", "d", "f"]);
 
 print "\n--------------------  Problem 2  --------------------\n";
 
