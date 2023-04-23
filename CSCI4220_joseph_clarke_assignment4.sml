@@ -43,8 +43,7 @@ fun union([], ys) = ys (* once xs is exhausted, add ys to return list *)
 union(["a", "b", "c", "d", "e"], ["c", "d", "e", "f", "g"]);
 union([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]);
 
-
-print "\n--------------------  Problem 3  --------------------\n";
+print "\n--------------------  Problem 4  --------------------\n";
 
 fun intersection([], _) = [] 
   | intersection(x::xs, ys) = 
@@ -62,3 +61,17 @@ fun multiSetIntersection([]) = []
 
 multiSetIntersection([ [1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7] ]);
 multiSetIntersection([ [1, 8, 7, 3], [8, 1, 6, 3], [7, 5, 1, 3], [6, 3, 4, 1] ]);
+
+print "\n--------------------  Problem 5  --------------------\n";
+
+fun CartesianProduct(xs, ys) = List.concat(
+	List.map(
+		fn x => List.map(fn y => (x, y))
+		xs
+	)
+	ys
+);
+
+CartesianProduct([1, 2, 3], [1, 2, 3]);
+
+print "\n--------------------  Problem 6  --------------------\n";
