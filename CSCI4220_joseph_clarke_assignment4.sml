@@ -56,6 +56,7 @@ fun multiSetIntersection([]) = []
   | multiSetIntersection([xs]) = xs
   | multiSetIntersection(xs::xss) = intersection(xs, multiSetIntersection(xss));
 
+(* intersection test *)
 (* intersection([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]); *)
 
 multiSetIntersection([ [1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7] ]);
