@@ -34,7 +34,7 @@ fun union([], ys) = ys (* once xs is exhausted, add ys to return list *)
   | union(xs, []) = xs
   | union(x::xs, ys) = 
 		(* if x exists in ys *)
-		if (List.exists(fn y => x = y) ys) then 
+		if (List.exists(fn y => (x = y)) ys) then 
 			union(xs, ys)     (* do not add x to return list *)
 		else 
 			x::union(xs, ys); (* add x to return list *)
@@ -47,7 +47,7 @@ print "\n--------------------  Problem 4  --------------------\n";
 fun intersection([], _) = [] 
   | intersection(x::xs, ys) = 
 		(* if x exists in ys *)
-		if (List.exists(fn y => x = y) ys) then
+		if (List.exists(fn y => (x = y)) ys) then
 			x::intersection(xs, ys)
 		else
 			intersection(xs, ys);
