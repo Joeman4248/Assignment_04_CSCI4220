@@ -72,7 +72,7 @@ crossProduct([1, 2, 3], [4, 5, 6]);
 
 print "\n--------------------  Problem 6  --------------------\n";
 
-fun powerset([]) = [[]] (* base case: empty set *)
+fun powerset([]) = [[]] 
   | powerset(x::xs) = 
 		let
 			val next_step = powerset(xs)
