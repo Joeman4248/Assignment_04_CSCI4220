@@ -6,8 +6,6 @@
 
 print "\n--------------------  Problem 1  --------------------\n";
 
-(* takes two lists of equal length and returns a list whose 
- * elements are alternately taken from the two lists *)
 fun alternate([], []) = []
   | alternate(x::xs, y::ys) = x::y::alternate(xs, ys)
   | alternate(xs, ys) = raise Fail "Arrays are of unequal length";
