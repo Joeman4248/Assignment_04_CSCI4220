@@ -65,11 +65,7 @@ multiSetIntersection([ [1, 8, 7, 3], [8, 1, 6, 3], [7, 5, 1, 3], [6, 3, 4, 1] ])
 print "\n--------------------  Problem 5  --------------------\n";
 
 fun crossProduct(set1, set2) = List.concat(
-	List.map(
-		fn x => List.map(fn y => (x, y))
-		set2
-	)
-	set1
+	List.map(fn x => List.map(fn y => (x, y)) set2) set1
 );
 
 crossProduct([1, 2, 3], [4, 5, 6]);
