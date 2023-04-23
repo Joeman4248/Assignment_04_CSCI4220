@@ -87,7 +87,7 @@ print "\n--------------------  Problem 7  --------------------\n";
 
 fun finiteListRepresentation(f, n) = 
 	let 
-		val range = List.tabulate(n, fn x => x+1); (* [1, 2, ... n] *)
+		val range = List.tabulate(n, fn i => i+1); (* [1, 2, ... n] *)
 	in 
 		List.map(fn x => (x, f(x))) range
 	end;
