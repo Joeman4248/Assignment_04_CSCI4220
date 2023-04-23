@@ -6,29 +6,59 @@
 
 print "\n--------------------  Problem 1  --------------------\n";
 
-exception List_Length_Exception;
-
-fun alternate([], []) = [] 
-  | alternate(v1 :: list1, v2 :: list2) = v1 :: v2 :: alternate(list1, list2)
-  | alternate(list1, list2) = raise List_Length_Exception; 
+(* takes two lists of equal length and returns a list whose 
+ * elements are alternately taken from the two lists *)
+fun alternate([], []) = []
+  | alternate(x::xs, y::ys) = x::y::alternate(xs, ys)
+  | alternate(xs, ys) = raise Fail "Arrays are of unequal length";
 
 alternate([1, 3, 5], [2, 4, 6]);
 
-
 print "\n--------------------  Problem 2  --------------------\n";
 
-fun minus(list1, []) = list1
-  | minus([], list2) = []
-  | minus(v1 :: list1, v2 :: list2) = 
-		if (v1 = v2)      then minus(list1, list2)			(* don't add element to ret. array *)
-  		else if (v1 > v2) then minus(v1 :: list1, list2)	(* move onto next element in list2 *)
-		else              v1 :: minus(list1, v2 :: list2);  (* add element to ret. array *)
+fun minus(xs, []) = xs
+  | minus([], ys) = []
+  | minus(x::xs, y::ys) = 
+		if (x = y) then 
+			minus(xs, ys)    (* do not add x to return list *)
+  		else if (x > y) then 
+			minus(x::xs, ys) (* move onto next element in ys *)
+		else
+			x::minus(xs, y::ys); (* add x to returned list *)
 
 minus([1, 1, 1, 2, 2], [1, 1, 2, 3]);
 minus([1, 1, 2, 3], [1, 1, 1, 2, 2]);
 
 print "\n--------------------  Problem 3  --------------------\n";
 
-fun union([], set2) = set2
-  | union(v1 :: set1, set2) = 
-		
+fun union([], ys) = ys (* once xs is exhausted, add ys to return list *)
+  | union(xs, []) = xs
+  | union(x::xs, ys) = 
+		(* if x exists in ys *)
+		if (List.exists(fn y => x = y) ys) then 
+			union(xs, ys)     (* do not add x to return list *)
+		else 
+			x::union(xs, ys); (* add x to return list *)
+
+union(["a", "b", "c", "d", "e"], ["c", "d", "e", "f", "g"]);
+union([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]);
+
+
+print "\n--------------------  Problem 3  --------------------\n";
+
+fun intersection([], _) = [] 
+  | intersection(x::xs, ys) = 
+		(* if x exists in ys *)
+		if (List.exists(fn y => x = y) ys) then
+			x::intersection(xs, ys)
+		else
+			intersection(xs, ys);
+
+fun multiSetIntersection([]) = []
+  | multiSetIntersection([xs]) = xs
+  | multiSetIntersection(xs::xss) = intersection(xs, multiSetIntersection(xss));
+
+(* intersection([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]); *)
+
+multiSetIntersection([ [1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7] ]);
+multiSetIntersection([ [1, 8, 7, 3], [8, 1, 6, 3], [7, 5, 1, 3], [6, 3, 4, 1] ]);
