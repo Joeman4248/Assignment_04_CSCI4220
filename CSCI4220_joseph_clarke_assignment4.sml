@@ -72,6 +72,6 @@ fun crossProduct(set1, set2) = List.concat(
 	set1
 );
 
-crossProduct([1, 2, 3], [1, 2, 3]);
+crossProduct([1, 2, 3], [4, 5, 6]);
 
 print "\n--------------------  Problem 6  --------------------\n";
