@@ -66,12 +66,14 @@ print "\n\n( ------------- Problem 6 ------------- )\n";
 val list_of_numbers : int list = [1, 2, 3]
 fun powerset_helper x y = x::y
 fun powerset([]) = [[]]
-| powerset(x::y) = 
-let
-    val powerset = powerset(y)
-in
-    (map(powerset_helper x) powerset) @ powerset
-end;
+  | powerset
+  | powerset(x::y) = 
+		let
+			val powerset = powerset(y)
+		in
+
+		end;
+	
 powerset(list_of_numbers);
 
 print "\n\n( ------------- Problem 7 ------------- )\n";
