@@ -30,7 +30,7 @@ minus([1, 1, 2, 3], [1, 1, 1, 2, 2]);
 
 print "\n--------------------  Problem 3  --------------------\n";
 
-fun union([], ys) = ys (* once xs is exhausted, add ys to return list *)
+fun union([], ys) = ys
   | union(xs, []) = xs
   | union(x::xs, ys) = 
 		(* if x exists in ys *)
