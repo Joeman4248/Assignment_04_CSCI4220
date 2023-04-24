@@ -44,7 +44,7 @@ union([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]);
 
 print "\n--------------------  Problem 4  --------------------\n";
 
-fun intersection([], _) = [] 
+fun intersection([], _) = []
   | intersection(x::xs, ys) = 
 		(* if x exists in ys *)
 		if (List.exists(fn y => (x = y)) ys) then
@@ -96,6 +96,19 @@ finiteListRepresentation(fn x => 2*x, 5);
 
 print "\n--------------------  Problem 8  --------------------\n";
 
+fun update([], (x, y)) = []
+  | update(e::list, (x, y)) = 
+		let
+			val (ex, _) = e
+			val next_step = update(list, (x, y))
+		in
+			if ex = x then
+				(x, y)::next_step
+			else
+				e::next_step
+		end;
+		
 val FLR = finiteListRepresentation(fn x => x*x, 5);
 
-fun update() = ;
+update(FLR, (2,3));
+update(FLR, (6,36));

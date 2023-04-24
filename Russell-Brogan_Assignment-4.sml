@@ -91,13 +91,16 @@ finiteListRepresentation(posIntegerSquare, 5);
 print "\n\n( ------------- Problem 8 ------------- )\n";
 val FLR : (int * int) list = [(1,1),(2,4),(3,9),(4,16),(5,25)]
 fun insert([], list) = list
-| insert(a::b, list) = a :: insert(b, list)
+  | insert(a::b, list) = a :: insert(b, list)
+
 fun update_helper FLR(x, y) list =
-case FLR of [] => insert(list, [(x, y)])
-| (x1, y1)::xs => 
-if(x = x1)
-then (insert(insert(list, [(x, y)]), xs))
-else(update_helper xs (x, y) (insert(list, [(x1, y1)])))
-fun update(FLR, (x, y)) = update_helper FLR(x, y) [];
+	case FLR of [] => insert(list, [(x, y)])
+	| (x1, y1)::xs => 
+		if(x = x1) then 
+			(insert(insert(list, [(x, y)]), xs))
+		else
+			(update_helper xs (x, y) (insert(list, [(x1, y1)])))
+			fun update(FLR, (x, y)) = update_helper FLR(x, y) [];
+	
 update(FLR, (2, 3));
 update(FLR, (6, 36));
