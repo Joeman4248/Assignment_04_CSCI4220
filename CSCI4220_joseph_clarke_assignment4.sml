@@ -93,3 +93,9 @@ fun finiteListRepresentation(f, n) =
 
 finiteListRepresentation(fn x => x*x, 5);
 finiteListRepresentation(fn x => 2*x, 5);
+
+print "\n--------------------  Problem 8  --------------------\n";
+
+val FLR = finiteListRepresentation(fn x => x*x, 5);
+
+fun update() = ;
