@@ -97,16 +97,12 @@ finiteListRepresentation(fn x => 2*x, 5);
 print "\n--------------------  Problem 8  --------------------\n";
 
 fun update([], (x, y)) = []
-  | update(e::list, (x, y)) = 
-		let
-			val (ex, _) = e
-			val next_step = update(list, (x, y))
-		in
-			if ex = x then
-				(x, y)::next_step
-			else
-				e::next_step
-		end;
+  | update((ex, ey)::list, (x, y)) = 
+		if ex = x then
+			(x, y)::update(list, (x, y))
+		else
+			(ex, ey)::update(list, (x, y));
+
 		
 val FLR = finiteListRepresentation(fn x => x*x, 5);
 

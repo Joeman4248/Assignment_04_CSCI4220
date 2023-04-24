@@ -100,7 +100,8 @@ fun update_helper FLR(x, y) list =
 			(insert(insert(list, [(x, y)]), xs))
 		else
 			(update_helper xs (x, y) (insert(list, [(x1, y1)])))
-			fun update(FLR, (x, y)) = update_helper FLR(x, y) [];
-	
+
+fun update(FLR, (x, y)) = update_helper FLR(x, y) [];
+
 update(FLR, (2, 3));
 update(FLR, (6, 36));
