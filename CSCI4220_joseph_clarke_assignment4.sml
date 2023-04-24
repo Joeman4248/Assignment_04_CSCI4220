@@ -64,8 +64,8 @@ multiSetIntersection([ [1, 8, 7, 3], [8, 1, 6, 3], [7, 5, 1, 3], [6, 3, 4, 1] ])
 
 print "\n--------------------  Problem 5  --------------------\n";
 
-fun crossProduct(xs, ys) = 
-	List.concat(List.map(fn x => List.map(fn y => (x, y)) ys) xs);
+fun crossProduct(set1, set2) = 
+	List.concat(List.map(fn a => List.map(fn b => (a, b)) set2) set1);
 
 crossProduct([1, 2, 3], [4, 5, 6]);
 
@@ -76,7 +76,7 @@ fun powerset([]) = [[]]
 		let
 			val next_step = powerset(xs)
 		in
-			(List.map(fn y => x::y) next_step) @ next_step
+			(List.map(fn a => x::a) next_step) @ next_step
 		end;
 
 powerset([1, 2]);
