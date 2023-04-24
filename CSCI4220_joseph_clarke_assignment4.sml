@@ -98,11 +98,12 @@ print "\n--------------------  Problem 8  --------------------\n";
 
 fun update_helper([], new_pair, added) = []
   | update_helper(list, new_pair, true) = list
-  | update_helper((ex, ey)::list, (x, y), false) = 
-		if x > ex then      (x, y)::(ex, ey)::update_helper(list, (x, y), true)
-		else if x = ex then (x, y)::update_helper(list, (x, y), true)
-		else                (ex, ey)::update_helper(list, (x, y), false);
-	
+  | update_helper(old_pair::list, (x, y), false) = 
+		val (v, _) = old_pair
+		if x > v then      (x, y)::old_pair::update_helper(list, (x, y), true)
+		else if x = v then (x, y)::update_helper(list, (x, y), true)
+		else               old_pair::update_helper(list, (x, y), false);
+
 fun update(list, new_pair) = List.rev(update_helper(List.rev(list), new_pair, false));
 
 val FLR = finiteListRepresentation(fn x => x*x, 5);
