@@ -98,11 +98,10 @@ print "\n--------------------  Problem 8  --------------------\n";
 
 fun update_helper([], new_pair, added) = []
   | update_helper(list, new_pair, true) = list
-  | update_helper(old_pair::list, (x, y), false) = 
-		val (v, _) = old_pair
-		if x > v then      (x, y)::old_pair::update_helper(list, (x, y), true)
-		else if x = v then (x, y)::update_helper(list, (x, y), true)
-		else               old_pair::update_helper(list, (x, y), false);
+  | update_helper((a, b)::list, (x, y), false) = 
+		if x > a then      (x, y)::(a, b)::update_helper(list, (x, y), true)
+		else if x = a then (x, y)::update_helper(list, (x, y), true)
+		else               (a, b)::update_helper(list, (x, y), false);
 
 fun update(list, new_pair) = List.rev(update_helper(List.rev(list), new_pair, false));
 
