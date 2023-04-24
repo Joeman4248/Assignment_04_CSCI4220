@@ -103,8 +103,7 @@ fun update_helper([], (x, y), added) = []
 		else if x = ex then (x, y)::update_helper(list, (x, y), true)
 		else                (ex, ey)::update_helper(list, (x, y), false);
 		
-fun update([], new_pair) = []
-  | update(list, new_pair) = List.rev(update_helper(List.rev(list), new_pair, false));
+fun update(list, new_pair) = List.rev(update_helper(List.rev(list), new_pair, false));
 
 val FLR = finiteListRepresentation(fn x => x*x, 5);
 
