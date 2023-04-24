@@ -96,8 +96,8 @@ finiteListRepresentation(fn x => 2*x, 5);
 
 print "\n--------------------  Problem 8  --------------------\n";
 
-fun update_helper([], (x, y), added) = []
-  | update_helper(list, (x, y), true) = list
+fun update_helper([], new_pair, added) = []
+  | update_helper(list, new_pair, true) = list
   | update_helper((ex, ey)::list, (x, y), false) = 
 		if x > ex then      (x, y)::(ex, ey)::update_helper(list, (x, y), true)
 		else if x = ex then (x, y)::update_helper(list, (x, y), true)
