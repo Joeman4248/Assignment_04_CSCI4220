@@ -20,7 +20,7 @@ fun minus(xs, []) = xs
   | minus(x::xs, y::ys) = 
         if (x = y) then 
             minus(xs, ys)    (* do not add x to return list *)
-          else if (x > y) then 
+        else if (x > y) then 
             minus(x::xs, ys) (* move onto next element in ys *)
         else
             x::minus(xs, y::ys); (* add x to returned list *)
