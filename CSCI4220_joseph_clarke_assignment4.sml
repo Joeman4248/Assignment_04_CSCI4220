@@ -109,7 +109,7 @@ fun update(list, new_pair) = List.rev(update_helper(List.rev(list), new_pair, fa
 fun update([], new_pair) = [new_pair]
   | update( (old_pair as (x1, y1))::list, (new_pair as (x2, y2)) ) =
 	    if x1 = x2 then new_pair::list
-		else            old_pair::update(list, new_pair)
+		else            old_pair::update(list, new_pair);
 
 val FLR = finiteListRepresentation(fn x => x*x, 5);
 
