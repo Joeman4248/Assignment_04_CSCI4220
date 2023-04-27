@@ -96,16 +96,6 @@ finiteListRepresentation(fn x => 2*x, 5);
 
 print "\n--------------------  Problem 8  --------------------\n";
 
-(* Old solution *)
-(* fun update_helper([], new_pair, added) = []
-  | update_helper(list, new_pair, true) = list
-  | update_helper((a, b)::list, (x, y), false) = 
-        if x > a then      (x, y)::(a, b)::update_helper(list, (x, y), true)
-        else if x = a then (x, y)::update_helper(list, (x, y), true)
-        else               (a, b)::update_helper(list, (x, y), false);
-
-fun update(list, new_pair) = List.rev(update_helper(List.rev(list), new_pair, false)); *)
-
 fun update([], new_pair) = [new_pair]
   | update( (old_pair as (x1, y1))::list, (new_pair as (x2, y2)) ) =
 	    if x1 = x2 then new_pair::list
